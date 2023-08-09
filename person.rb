@@ -1,5 +1,5 @@
 require_relative 'nameable'
-
+require_relative 'rentals'
 class Person < Nameable
   attr_accessor :name, :age, :classroom, :rentals
   attr_reader :id
@@ -29,7 +29,7 @@ class Person < Nameable
     @name
   end
 
-  def add_student
-    classroom.add_student(self) unless classroom.students.include?(self)
+  def add_rental(date, book)
+    Rentals.new(date, self, book)
   end
 end
