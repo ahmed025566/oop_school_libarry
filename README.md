@@ -46,6 +46,9 @@
 - **Save records of who borrowed a given book and when.**
 - **Capitalizing the name after saving it**
 - **Make the name 10 charceters Maximum**
+- **To put students into class**
+- **storing each person and thier rentals**
+- **Storing book with its rentals**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
