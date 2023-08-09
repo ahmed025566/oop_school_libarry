@@ -44,6 +44,8 @@
 - **Add new students or teachers**
 - **Add new books.**
 - **Save records of who borrowed a given book and when.**
+- **Capitalizing the name after saving it**
+- **Make the name 10 charceters Maximum**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
