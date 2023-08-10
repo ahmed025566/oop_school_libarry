@@ -32,17 +32,6 @@ def create_person(app)
   end
 end
 
-def show_options
-  puts "\nPlease choose an option by entering a number:"
-  puts '1 - List all books'
-  puts '2 - List all people'
-  puts '3 - Create a person'
-  puts '4 - Create a book'
-  puts '5 - Create a rental'
-  puts '6 - List all rentals for a given person id'
-  puts '7 - Exit'
-end
-
 def create_rentals(app)
   puts 'Select a book from the following list by number'
   app.list_all_books(select: true)
@@ -69,6 +58,17 @@ def list_rentals(app)
   print 'ID of person: '
   person_id = gets.chomp.to_i
   app.list_rentals_for_person(person_id)
+end
+
+def show_options
+  puts "\nPlease choose an option by entering a number:"
+  puts '1 - List all books'
+  puts '2 - List all people'
+  puts '3 - Create a person'
+  puts '4 - Create a book'
+  puts '5 - Create a rental'
+  puts '6 - List all rentals for a given person id'
+  puts '7 - Exit'
 end
 
 def main
