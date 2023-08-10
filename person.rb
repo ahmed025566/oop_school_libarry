@@ -30,8 +30,6 @@ class Person < Nameable
   end
 
   def add_rental(date, book)
-    rental = Rentals.new(date, self, book)
-    @rentals << rental unless @rentals.include?(rental)
-    return
+    Rentals.new(date, self, book)
   end
 end
