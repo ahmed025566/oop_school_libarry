@@ -88,6 +88,7 @@ def main
       '6' => -> { list_rentals(app) },
       '7' => lambda {
                puts 'Thank you for using this app!'
+               app.save_date
                exit = true
              }
     }
