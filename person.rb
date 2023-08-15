@@ -32,4 +32,12 @@ class Person < Nameable
   def add_rental(date, book)
     Rentals.new(date, self, book)
   end
+
+  def to_hash
+    {
+      id: @id
+      name: @name
+      age: @age
+      rentals: @rentals.map(:&to_hash)
+    }
 end
