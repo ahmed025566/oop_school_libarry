@@ -7,6 +7,7 @@ class App
   def initialize
     @people = []
     @books = []
+    @rentals = []
   end
 
   def list_all_books(select: false)
@@ -37,18 +38,15 @@ class App
   def create_rental(book_id, person_id, date)
     book = @books[book_id]
     person = @people[person_id]
-    person.add_rental(date, book)
+    @rentals << Rentals.new(date, person, book)
   end
 
   def list_rentals_for_person(person_id)
-    person = @people.find do |p|
-      p.id == person_id
-    end
-    return unless person
-
     puts 'Rentals'
-    person.rentals.each do |rental|
-      puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
+    @rentals.each do |rental|
+      if rental.person.id == person_id
+        puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
+      end
     end
   end
 end
