@@ -52,7 +52,7 @@ class App
   end
 
   def save_date
-    books_json = @books.map(:&to_hash)
+    books_json = @books.map(&:to_hash)
     rentals_json = @rentals.map(&:to_hash)
     people_json = @people.map(&:to_hash)
 

@@ -1,5 +1,6 @@
 require_relative 'nameable'
 require_relative 'rentals'
+require 'json'
 class Person < Nameable
   attr_accessor :name, :age, :classroom, :rentals
   attr_reader :id
@@ -35,9 +36,10 @@ class Person < Nameable
 
   def to_hash
     {
-      id: @id
-      name: @name
-      age: @age
-      rentals: @rentals.map(:&to_hash)
+      id: @id,
+      name: @name,
+      age: @age,
+      rentals: @rentals.map(&:to_hash)
     }
+  end
 end

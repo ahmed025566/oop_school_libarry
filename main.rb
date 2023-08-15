@@ -71,7 +71,7 @@ def show_options
   puts '7 - Exit'
 end
 
-def main
+class Main
   app = App.new
   exit = false
   puts "Welcome to School Library App! \n\n"
@@ -95,5 +95,5 @@ def main
     options[option].call
   end
 end
-
+main = Main.new
 main
