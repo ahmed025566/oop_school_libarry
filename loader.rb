@@ -51,9 +51,9 @@ class Loader
 
   def create_person_from_data(data)
     if data['specialization']
-      Teacher.new(data['age'], data['name'], data['specialization'])
+      Teacher.new(data['id'], data['age'], data['name'], data['specialization'])
     else
-      Student.new(data['age'], data['name'])
+      Student.new(data['id'], data['age'], data['name'])
     end
   end
   attr_reader :books, :people, :rentals

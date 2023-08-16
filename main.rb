@@ -1,24 +1,28 @@
 require_relative 'app'
 require_relative 'loader'
 def create_student(app)
+  print 'ID: '
+  id = gets.chomp.to_i
   print 'Age: '
-  age = gets.chomp
+  age = gets.chomp.to_i
   print 'Name: '
   name = gets.chomp
   print 'Has parent permission? [Y/N]: '
   permission = gets.chomp.downcase == 'y'
-  app.create_student(age, name, permission)
+  app.create_student(id, age, name, parent_permission: permission)
   puts 'Person created successfully'
 end
 
 def create_teacher(app)
+  print 'ID: '
+  id = gets.chomp.to_i
   print 'Age: '
   age = gets.chomp
   print 'Name: '
   name = gets.chomp
   print 'Specialization: '
   specialization = gets.chomp
-  app.create_teacher(age, name, specialization)
+  app.create_teacher(id, age, name, specialization)
   puts 'Person created successfully'
 end
 
