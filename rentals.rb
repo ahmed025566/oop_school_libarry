@@ -14,8 +14,8 @@ class Rentals
     {
       date: @date,
       book: {
-        title: @book.title,
-        author: @book.author
+        author: @book.author,
+        title: @book.title
       },
       person: {
         id: @person.id,

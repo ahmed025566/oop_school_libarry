@@ -1,5 +1,5 @@
 require_relative 'app'
-
+require_relative 'loader'
 def create_student(app)
   print 'Age: '
   age = gets.chomp
@@ -72,7 +72,8 @@ def show_options
 end
 
 class Main
-  app = App.new
+  loader = Loader.new
+  app = App.new(loader.people, loader.books, loader.rentals)
   exit = false
   puts "Welcome to School Library App! \n\n"
 

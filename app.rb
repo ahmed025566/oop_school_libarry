@@ -3,12 +3,12 @@ require_relative 'book'
 require_relative 'student'
 require_relative 'teacher'
 require_relative 'rentals'
-
+require_relative 'loader'
 class App
-  def initialize
-    @people = []
-    @books = []
-    @rentals = []
+  def initialize(people, books, rentals)
+    @people = people
+    @books = books
+    @rentals = rentals
   end
 
   def list_all_books(select: false)

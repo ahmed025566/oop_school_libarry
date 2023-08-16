@@ -1,7 +1,7 @@
 require 'json'
 require './book'
 require './person'
-require './rental'
+require './rentals'
 class Loader
   def initialize
     load_data
@@ -35,7 +35,7 @@ class Loader
       person_data = data['person']
       book = @books.find { |b| b.title == book_data['title'] && b.author == book_data['author'] }
       person = create_person_from_data(person_data)
-      Rental.new(data['date'], book, person)
+      Rentals.new(data['date'], person, book)
     end
   end
 
@@ -51,9 +51,9 @@ class Loader
 
   def create_person_from_data(data)
     if data['specialization']
-      Teacher.new(data['age'], data['specialization'], data['name'])
+      Teacher.new(data['age'], data['name'], data['specialization'])
     else
-      Student.new(data['age'], data['parent_permission'], data['name'])
+      Student.new(data['age'],data['name'],  data['parent_permission'])
     end
   end
   attr_reader :books, :people, :rentals
