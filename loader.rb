@@ -53,7 +53,7 @@ class Loader
     if data['specialization']
       Teacher.new(data['age'], data['name'], data['specialization'])
     else
-      Student.new(data['age'],data['name'],  data['parent_permission'])
+      Student.new(data['age'], data['name'])
     end
   end
   attr_reader :books, :people, :rentals
