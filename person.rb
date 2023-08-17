@@ -3,7 +3,7 @@ require_relative 'rentals'
 require 'json'
 class Person < Nameable
   attr_accessor :name, :age, :classroom, :rentals
-  attr_reader :id
+  attr_reader :id, :parent_permission
 
   def initialize(id, age, name, parent_permission: true)
     super()

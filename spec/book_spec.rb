@@ -11,10 +11,11 @@ describe 'book tests' do
 
   it 'should add a rental to book' do
     book = Book.new('Title', 'Author')
-    date = '2023-08-17'
-    person = instance_double('Person')
+    date = '2023-089-17'
+    person = Person.new(777, 23, 'Ahmed')
     rental = book.add_rental(date, person)
-    expect(rental).to be_a(Rentals)
+    expect(rental).to be_an_instance_of(Rentals)
+    expect(rental.book).to eq(book)
     expect(book.rentals).to include(rental)
   end
 
