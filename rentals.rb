@@ -7,7 +7,7 @@ class Rentals
     @person = person
     # person.rentals << self
     @book = book
-    # book.rentals << self
+    book.rentals << self
   end
 
   def to_hash
