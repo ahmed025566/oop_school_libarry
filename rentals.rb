@@ -5,8 +5,23 @@ class Rentals
   def initialize(date, person, book)
     @date = date
     @person = person
-    person.rentals << self
+    # person.rentals << self
     @book = book
-    book.rentals << self
+    # book.rentals << self
+  end
+
+  def to_hash
+    {
+      date: @date,
+      book: {
+        author: @book.author,
+        title: @book.title
+      },
+      person: {
+        id: @person.id,
+        name: @person.name,
+        age: @person.age
+      }
+    }
   end
 end

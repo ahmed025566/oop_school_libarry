@@ -1,12 +1,14 @@
+require 'json'
 require_relative 'book'
 require_relative 'student'
 require_relative 'teacher'
 require_relative 'rentals'
-
+require_relative 'loader'
 class App
-  def initialize
-    @people = []
-    @books = []
+  def initialize(people, books, rentals)
+    @people = people
+    @books = books
+    @rentals = rentals
   end
 
   def list_all_books(select: false)
@@ -22,12 +24,12 @@ class App
     end
   end
 
-  def create_student(age, name, parent_permission)
-    @people << Student.new(age, name, parent_permission: parent_permission)
+  def create_student(id, age, name, parent_permission: true)
+    @people << Student.new(id, age, name, parent_permission: parent_permission)
   end
 
-  def create_teacher(age, name, specialization)
-    @people << Teacher.new(age, name, specialization)
+  def create_teacher(id, age, name, specialization)
+    @people << Teacher.new(id, age, name, specialization)
   end
 
   def create_book(title, author)
@@ -37,18 +39,25 @@ class App
   def create_rental(book_id, person_id, date)
     book = @books[book_id]
     person = @people[person_id]
-    person.add_rental(date, book)
+    @rentals << Rentals.new(date, person, book)
   end
 
   def list_rentals_for_person(person_id)
-    person = @people.find do |p|
-      p.id == person_id
-    end
-    return unless person
-
     puts 'Rentals'
-    person.rentals.each do |rental|
-      puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
+    @rentals.each do |rental|
+      if rental.person.id == person_id
+        puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
+      end
     end
+  end
+
+  def save_date
+    books_json = @books.map(&:to_hash)
+    rentals_json = @rentals.map(&:to_hash)
+    people_json = @people.map(&:to_hash)
+
+    File.write('storage/books.json', JSON.generate(books_json))
+    File.write('storage/people.json', JSON.generate(people_json))
+    File.write('storage/rentals.json', JSON.generate(rentals_json))
   end
 end
