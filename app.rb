@@ -25,7 +25,7 @@ class App
   end
 
   def create_student(id, age, name, parent_permission: true)
-    @people << Student.new(id, age, name, parent_permission:)
+    @people << Student.new(id, age, name, parent_permission: parent_permission)
   end
 
   def create_teacher(id, age, name, specialization)
