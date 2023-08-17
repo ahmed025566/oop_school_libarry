@@ -15,7 +15,7 @@ describe 'Student tests' do
   end
   it 'should add a student to a classroom' do
     geography = Classroom.new('Geography')
-    student.classroom=(geography)
+    student.classroom = (geography)
     expect(student.classroom).to eq(geography)
     expect(geography.students).to include(student)
   end
